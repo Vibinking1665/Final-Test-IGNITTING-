@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px gray;
+        }
+        .question {
+            margin: 15px 0;
+            text-align: left;
+        }
+        .timer {
+            font-size: 20px;
+            font-weight: bold;
+            color: red;
+        }
+        .warning {
+            color: orange;
+            font-weight: bold;
+            display: none;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            background: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Online Test</h2>
+    <p class="timer">Time Left: <span id="time">02:00</span></p>
+    <p class="warning" id="warning">⚠️ Hurry up! Only 10 seconds left.</p>
+
+    <form id="quizForm">
+        <div class="question">
+            <p>1. What is 2 + 2?</p>
+            <input type="radio" name="q1" value="3"> 3
+            <input type="radio" name="q1" value="4"> 4
+            <input type="radio" name="q1" value="5"> 5
+        </div>
+
+        <div class="question">
+            <p>2. What is the capital of France?</p>
+            <input type="radio" name="q2" value="Berlin"> Berlin
+            <input type="radio" name="q2" value="Madrid"> Madrid
+            <input type="radio" name="q2" value="Paris"> Paris
+        </div>
+
+        <!-- Add 8 more questions like the above -->
+
+        <button type="button" onclick="submitTest()">Submit</button>
+    </form>
+</div>
+
+<script>
+    let timeLeft = 120; // Set time in seconds (2 minutes)
+    let timerInterval = setInterval(updateTimer, 1000);
+
+    function updateTimer() {
+        let minutes = Math.floor(timeLeft / 60);
+        let seconds = timeLeft % 60;
+        document.getElementById("time").innerText = 
+            (minutes < 10 ? "0" : "") + minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+
+        if (timeLeft === 10) {
+            document.getElementById("warning").style.display = "block";
+        }
+
+        if (timeLeft === 0) {
+            clearInterval(timerInterval);
+            autoSubmit();
+        }
+
+        timeLeft--;
+    }
+
+    function autoSubmit() {
+        let confirmSubmit = confirm("Time is up! Are you sure about submitting the test?");
+        if (confirmSubmit) {
+            alert("Your test has been submitted! Keep Learning and Growing! 🚀");
+            document.getElementById("quizForm").submit();
+        }
+    }
+
+    function submitTest() {
+        let confirmSubmit = confirm("Are you sure about submitting the test?");
+        if (confirmSubmit) {
+            alert("Your test has been submitted! Keep Learning and Growing! 🚀");
+            document.getElementById("quizForm").submit();
+        }
+    }
+</script>
+
+</body>
+</html>
