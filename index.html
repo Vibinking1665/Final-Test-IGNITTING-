@@ -3,133 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Online Test</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <style>
-        /* 🌆 Background Image with Proper Scaling */
-        body {
-            font-family: 'Poppins', sans-serif;
-            text-align: center;
-            background: url('background.jpg') no-repeat center center fixed; 
-            background-size: cover;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-        }
-
-        /* 🎨 Faded Overlay for Better Visibility */
-        body::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5); /* Slightly darker fade for better contrast */
-            z-index: -1;
-        }
-
-        /* 🎯 Modern Login Container */
-        .container {
-            background: rgba(255, 255, 255, 0.95); /* Softer white */
-            padding: 35px;
-            border-radius: 20px;
-            box-shadow: 0px 4px 20px rgba(255, 255, 255, 0.3);
-            color: black;
-            position: relative;
-            width: 400px; /* Slightly wider */
-            text-align: center;
-        }
-
-        /* 🏆 Logo Styling (Top-Right) */
-        .logo {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 90px;
-            height: auto;
-        }
-
-        /* 🔷 Stylish Title */
-        h2 {
-            font-weight: 600;
-            font-size: 22px;
-            margin-bottom: 15px;
-            color: #333;
-        }
-
-        /* ✏️ Input Fields with Stylish Borders */
-        input, select {
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            font-size: 16px;
-            border-radius: 8px;
-            border: 2px solid #ddd;
-            outline: none;
-            transition: 0.3s;
-        }
-
-        input:focus, select:focus {
-            border-color: #007bff; /* Blue highlight */
-            box-shadow: 0px 0px 10px rgba(0, 123, 255, 0.4);
-        }
-
-        /* ✅ Improved Button Styling */
-        button {
-            width: 100%;
-            padding: 12px;
-            background: linear-gradient(45deg, #28a745, #218838); /* Gradient effect */
-            color: white;
-            font-size: 18px;
-            font-weight: bold;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        button:hover {
-            background: linear-gradient(45deg, #218838, #1e7e34);
-            box-shadow: 0px 4px 10px rgba(0, 255, 0, 0.3);
-        }
-    </style>
+    <title>IGNITTE - Online Test</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
-
-    <!-- 🏆 IGNITTE Logo (Top Right) -->
-    <img src="logo.png" alt="IGNITTE Logo" class="logo">
-
     <div class="container">
-        <h2>🔹 Enter Your Details</h2>
-        <form id="loginForm">
-            <input type="text" id="name" placeholder="Enter your Name" required><br>
-            <input type="text" id="roll" placeholder="Enter your Roll Number" required><br>
-            <select id="subject">
-                <option value="math">Math</option>
-                <option value="physics">Physics</option>
-                <option value="chemistry">Chemistry</option>
-            </select><br>
-            <button type="submit">Start Test</button>
-        </form>
+        <div class="login-box">
+            <h2>🔥 Enter Your Details</h2>
+            <form id="loginForm">
+                <input type="text" id="name" placeholder="Enter your Name" required>
+                <input type="text" id="roll" placeholder="Enter your Roll Number" required>
+                <select id="subject">
+                    <option value="Math">Math</option>
+                    <option value="Physics">Physics</option>
+                    <option value="Chemistry">Chemistry</option>
+                </select>
+                <button type="submit">Start Test</button>
+            </form>
+        </div>
     </div>
-
-    <script>
-        document.getElementById("loginForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-            let name = document.getElementById("name").value;
-            let roll = document.getElementById("roll").value;
-            let subject = document.getElementById("subject").value;
-
-            if (name && roll) {
-                window.location.href = `test.html?name=${name}&roll=${roll}&subject=${subject}`;
-            } else {
-                alert("Please fill in all details.");
-            }
-        });
-    </script>
-
 </body>
 </html>
