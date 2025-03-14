@@ -4,13 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Online Test</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- 🖋 Attractive Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
     <style>
-        /* 🌆 Background Image with Proper Scaling */
+        /* 🌄 Background Image with Overlay */
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Nunito Sans', sans-serif;
             text-align: center;
-            background: url('background.jpg') no-repeat center center fixed; 
+            background: url('background.jpg') no-repeat center center fixed;
             background-size: cover;
             height: 100vh;
             display: flex;
@@ -19,7 +22,7 @@
             position: relative;
         }
 
-        /* 🎨 Faded Overlay for Better Visibility */
+        /* 🌫 Dark Fading Effect */
         body::before {
             content: "";
             position: absolute;
@@ -27,80 +30,82 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5); /* Slightly darker fade for better contrast */
+            background: rgba(0, 0, 0, 0.5);
             z-index: -1;
         }
 
-        /* 🎯 Modern Login Container */
+        /* 📦 Form Container */
         .container {
-            background: rgba(255, 255, 255, 0.95); /* Softer white */
-            padding: 35px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
             border-radius: 20px;
-            box-shadow: 0px 4px 20px rgba(255, 255, 255, 0.3);
-            color: black;
-            position: relative;
-            width: 400px; /* Slightly wider */
+            box-shadow: 0px 5px 25px rgba(255, 255, 255, 0.3);
+            width: 420px;
             text-align: center;
+            position: relative;
         }
 
-        /* 🏆 Logo Styling (Top-Right) */
+        /* 🏆 Logo Styling */
         .logo {
             position: absolute;
-            top: 20px;
-            right: 20px;
+            top: 15px;
+            right: 15px;
             width: 90px;
             height: auto;
         }
 
         /* 🔷 Stylish Title */
         h2 {
-            font-weight: 600;
-            font-size: 22px;
-            margin-bottom: 15px;
-            color: #333;
+            font-weight: 700;
+            font-size: 24px;
+            color: #222;
+            margin-bottom: 20px;
         }
 
-        /* ✏️ Input Fields with Stylish Borders */
+        /* 📥 Input Fields - Centered & Stylish */
         input, select {
-            width: 100%;
+            width: 90%;
             padding: 12px;
-            margin: 10px 0;
-            font-size: 16px;
-            border-radius: 8px;
+            margin: 12px 0;
+            font-size: 17px;
+            border-radius: 10px;
             border: 2px solid #ddd;
             outline: none;
-            transition: 0.3s;
+            transition: all 0.3s ease-in-out;
+            text-align: center;
         }
 
+        /* 🖌 Stylish Input Focus Effect */
         input:focus, select:focus {
-            border-color: #007bff; /* Blue highlight */
-            box-shadow: 0px 0px 10px rgba(0, 123, 255, 0.4);
+            border-color: #ff6b6b;
+            box-shadow: 0px 0px 12px rgba(255, 107, 107, 0.4);
         }
 
-        /* ✅ Improved Button Styling */
+        /* 🚀 Gradient Button */
         button {
-            width: 100%;
+            width: 92%;
             padding: 12px;
-            background: linear-gradient(45deg, #28a745, #218838); /* Gradient effect */
+            background: linear-gradient(45deg, #ff6b6b, #e63946);
             color: white;
             font-size: 18px;
             font-weight: bold;
             border: none;
-            border-radius: 8px;
+            border-radius: 10px;
             cursor: pointer;
-            transition: 0.3s;
+            transition: all 0.3s ease-in-out;
+            margin-top: 10px;
         }
 
         button:hover {
-            background: linear-gradient(45deg, #218838, #1e7e34);
-            box-shadow: 0px 4px 10px rgba(0, 255, 0, 0.3);
+            background: linear-gradient(45deg, #e63946, #b71c1c);
+            box-shadow: 0px 5px 15px rgba(255, 0, 0, 0.4);
         }
     </style>
 </head>
 <body>
 
-    <!-- 🏆 IGNITTE Logo (Top Right) -->
-    <img src="logo.png" alt="IGNITTE Logo" class="logo">
+    <!-- 🏆 Logo Image -->
+    <img src="logo.png" alt="Logo" class="logo">
 
     <div class="container">
         <h2>🔹 Enter Your Details</h2>
