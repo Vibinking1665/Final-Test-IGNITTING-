@@ -8,7 +8,6 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            margin: 20px;
             background-color: #f4f4f4;
         }
         .container {
@@ -19,100 +18,74 @@
             border-radius: 10px;
             box-shadow: 0px 0px 10px gray;
         }
-        .question {
-            margin: 15px 0;
-            text-align: left;
-        }
         .timer {
             font-size: 20px;
             font-weight: bold;
             color: red;
         }
-        .warning {
-            color: orange;
-            font-weight: bold;
-            display: none;
-        }
         button {
             padding: 10px 15px;
             font-size: 16px;
-            background: #28a745;
-            color: white;
+            cursor: not-allowed;
+            background-color: gray;
             border: none;
-            cursor: pointer;
+            color: white;
             border-radius: 5px;
         }
-        button:hover {
-            background: #218838;
+        button.enabled {
+            background-color: green;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h2>Online Test</h2>
-    <p class="timer">Time Left: <span id="time">02:00</span></p>
-    <p class="warning" id="warning">⚠️ Hurry up! Only 10 seconds left.</p>
+    <div class="container">
+        <h2>Online Test</h2>
+        <p class="timer">Time left: <span id="time">10:00</span></p>
 
-    <form id="quizForm">
-        <div class="question">
-            <p>1. What is 2 + 2?</p>
-            <input type="radio" name="q1" value="3"> 3
-            <input type="radio" name="q1" value="4"> 4
-            <input type="radio" name="q1" value="5"> 5
-        </div>
+        <!-- Sample Questions -->
+        <p>1. What is 2 + 2?</p>
+        <input type="radio" name="q1" value="3"> 3
+        <input type="radio" name="q1" value="4"> 4
+        <input type="radio" name="q1" value="5"> 5
 
-        <div class="question">
-            <p>2. What is the capital of France?</p>
-            <input type="radio" name="q2" value="Berlin"> Berlin
-            <input type="radio" name="q2" value="Madrid"> Madrid
-            <input type="radio" name="q2" value="Paris"> Paris
-        </div>
+        <br><br>
+        <button id="submitBtn" disabled>Submit Test</button>
+    </div>
 
-        <!-- Add 8 more questions like the above -->
+    <script>
+        let timeLeft = 10 * 60; // 10 minutes in seconds
+        let timerElement = document.getElementById("time");
+        let submitBtn = document.getElementById("submitBtn");
 
-        <button type="button" onclick="submitTest()">Submit</button>
-    </form>
-</div>
+        function updateTimer() {
+            let minutes = Math.floor(timeLeft / 60);
+            let seconds = timeLeft % 60;
+            timerElement.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
 
-<script>
-    let timeLeft = 120; // Set time in seconds (2 minutes)
-    let timerInterval = setInterval(updateTimer, 1000);
-
-    function updateTimer() {
-        let minutes = Math.floor(timeLeft / 60);
-        let seconds = timeLeft % 60;
-        document.getElementById("time").innerText = 
-            (minutes < 10 ? "0" : "") + minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
-
-        if (timeLeft === 10) {
-            document.getElementById("warning").style.display = "block";
+            if (timeLeft === 0) {
+                clearInterval(timer);
+                submitBtn.disabled = false;
+                submitBtn.classList.add("enabled");
+                submitBtn.textContent = "Submit Now";
+                submitBtn.style.cursor = "pointer";
+            } else {
+                timeLeft--;
+            }
         }
 
-        if (timeLeft === 0) {
-            clearInterval(timerInterval);
-            autoSubmit();
-        }
+        // Start the countdown
+        let timer = setInterval(updateTimer, 1000);
 
-        timeLeft--;
-    }
-
-    function autoSubmit() {
-        let confirmSubmit = confirm("Time is up! Are you sure about submitting the test?");
-        if (confirmSubmit) {
-            alert("Your test has been submitted! Keep Learning and Growing! 🚀");
-            document.getElementById("quizForm").submit();
-        }
-    }
-
-    function submitTest() {
-        let confirmSubmit = confirm("Are you sure about submitting the test?");
-        if (confirmSubmit) {
-            alert("Your test has been submitted! Keep Learning and Growing! 🚀");
-            document.getElementById("quizForm").submit();
-        }
-    }
-</script>
+        // Auto-submit when time ends
+        submitBtn.addEventListener("click", function() {
+            alert("Are you sure about submitting the test?");
+            setTimeout(() => {
+                alert("Test Submitted Successfully! 🎉");
+            }, 500);
+        });
+    </script>
 
 </body>
 </html>
