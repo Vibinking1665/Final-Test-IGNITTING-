@@ -3,93 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Online Test</title>
+    <title>Test Login</title>
     <style>
-        /* 🌙 Dark Mode Styling */
         body {
-            font-family: 'Times New Roman', serif; /* ✨ Gentle Font */
+            font-family: 'Times New Roman', serif;
             text-align: center;
-            background-color: black; /* 🔥 Pure Black Background */
-            color: white; /* Contrast for readability */
+            background-color: black;
+            color: white;
             height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
         }
-
-        /* 📌 Test Container - LIGHTER COLOR */
         .container {
-            background: rgba(255, 255, 255, 0.9); /* Lighter background */
+            background: rgba(255, 255, 255, 0.9);
             padding: 25px;
-            max-width: 600px;
-            width: 90%;
-            border-radius: 15px;
-            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.3);
-            color: black; /* Text inside container is black for better contrast */
+            max-width: 400px;
+            border-radius: 10px;
+            color: black;
         }
-
-        /* ⏳ Timer Style */
-        .timer {
-            font-size: 24px;
-            font-weight: bold;
-            color: red;
-            animation: pulse 1s infinite alternate;
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
         }
-
-        /* 🔥 Timer Animation */
-        @keyframes pulse {
-            from { transform: scale(1); }
-            to { transform: scale(1.1); }
+        button {
+            background: green;
+            color: white;
+            cursor: pointer;
         }
-
-        /* 🎭 Input Styling */
-        input {
-            margin: 5px;
-            transform: scale(1.2);
+        button:hover {
+            background: darkgreen;
         }
-
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h2>🎯 Online Test</h2>
-        <p class="timer">Time left: <span id="time">2:00</span></p>
-
-        <!-- ✅ Sample Questions with Better Spacing -->
-        <p><b>1️⃣ What is 2 + 2?</b></p>
-        <input type="radio" name="q1" value="3"> 3
-        <input type="radio" name="q1" value="4"> 4
-        <input type="radio" name="q1" value="5"> 5
+        <h2>🔐 Enter Test Details</h2>
+        <form id="loginForm">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="text" id="roll" placeholder="Your Roll Number" required>
+            <select id="subject" required>
+                <option value="">Select Subject</option>
+                <option value="math">Mathematics</option>
+                <option value="physics">Physics</option>
+                <option value="chemistry">Chemistry</option>
+            </select>
+            <button type="submit">Start Test</button>
+        </form>
     </div>
 
     <script>
-        let timeLeft = 120; // ⏳ 2 minutes (120 seconds)
-        let timerElement = document.getElementById("time");
-
-        function updateTimer() {
-            let minutes = Math.floor(timeLeft / 60);
-            let seconds = timeLeft % 60;
-            timerElement.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-
-            if (timeLeft === 0) {
-                clearInterval(timer);
-                autoSubmit(); // 🛑 Auto-submit when time reaches 0
-            } else {
-                timeLeft--;
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            let name = document.getElementById("name").value;
+            let roll = document.getElementById("roll").value;
+            let subject = document.getElementById("subject").value;
+            
+            if (name && roll && subject) {
+                localStorage.setItem("userName", name);
+                localStorage.setItem("userRoll", roll);
+                localStorage.setItem("userSubject", subject);
+                window.location.href = "test.html"; // Redirect to test page
             }
-        }
-
-        // Start the countdown
-        let timer = setInterval(updateTimer, 1000);
-
-        // Auto-submit function
-        function autoSubmit() {
-            setTimeout(() => {
-                alert("😂 You're already INDUCTED! 🎉");
-            }, 1000);
-        }
-
+        });
     </script>
 
 </body>
