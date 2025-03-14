@@ -3,101 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test Login</title>
+    <title>Login - Online Test</title>
     <style>
-        /* 🌙 General Page Styling */
         body {
             font-family: 'Times New Roman', serif;
+            text-align: center;
             background-color: black;
             color: white;
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            position: relative;
         }
-
-        /* 📌 Login Container */
-        .login-container {
-            background: #e0e0e0;
-            padding: 30px;
-            border-radius: 10px;
-            text-align: center;
-            width: 350px;
-            box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.2);
-        }
-
-        h2 {
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.3);
             color: black;
-            font-size: 22px;
-            margin-bottom: 20px;
+            position: relative;
         }
-
-        /* 🎨 Uniform Input & Select Styling */
-        input, select {
-            width: 90%;
-            padding: 12px;
+        /* 🏆 Logo Styling */
+        .logo {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 80px; /* Adjust size */
+            height: auto;
+        }
+        input, select, button {
+            padding: 10px;
+            margin: 10px;
             font-size: 16px;
-            margin-bottom: 15px;
-            border: 2px solid #ccc;
             border-radius: 5px;
-            background-color: #f8f8f8;
-            transition: all 0.3s ease;
-            outline: none;
+            border: 1px solid gray;
         }
-
-        input:focus, select:focus {
-            border-color: #007bff;
-            background-color: #fff;
-            box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
-        }
-
-        /* 🟢 Styled Button */
-        .start-btn {
-            width: 100%;
-            padding: 12px;
-            font-size: 18px;
+        button {
             background-color: green;
             color: white;
-            border: none;
-            border-radius: 5px;
             cursor: pointer;
-            transition: 0.3s;
         }
-
-        .start-btn:hover {
+        button:hover {
             background-color: darkgreen;
         }
     </style>
 </head>
 <body>
 
-    <div class="login-container">
-        <h2>🔒 Enter Test Details</h2>
-        <input type="text" id="name" placeholder="Your Name">
-        <input type="text" id="roll" placeholder="Your Roll Number">
-        <select id="subject">
-            <option value="" disabled selected>Select Subject</option>
-            <option value="math">Math</option>
-            <option value="physics">Physics</option>
-            <option value="chemistry">Chemistry</option>
-        </select>
-        <button class="start-btn" onclick="startTest()">Start Test</button>
+    <!-- 🏆 Logo Image (Top Right) -->
+    <img src="logo.png" alt="Logo" class="logo">
+
+    <div class="container">
+        <h2>🔹 Enter Your Details</h2>
+        <form id="loginForm">
+            <input type="text" id="name" placeholder="Enter your Name" required><br>
+            <input type="text" id="roll" placeholder="Enter your Roll Number" required><br>
+            <select id="subject">
+                <option value="math">Math</option>
+                <option value="physics">Physics</option>
+                <option value="chemistry">Chemistry</option>
+            </select><br>
+            <button type="submit">Start Test</button>
+        </form>
     </div>
 
     <script>
-        function startTest() {
-            let name = document.getElementById("name").value.trim();
-            let roll = document.getElementById("roll").value.trim();
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            let name = document.getElementById("name").value;
+            let roll = document.getElementById("roll").value;
             let subject = document.getElementById("subject").value;
 
-            if (name === "" || roll === "" || subject === "") {
-                alert("⚠️ Please fill in all details to start the test!");
-                return;
+            if (name && roll) {
+                window.location.href = `test.html?name=${name}&roll=${roll}&subject=${subject}`;
+            } else {
+                alert("Please fill in all details.");
             }
-
-            // Redirect to test page with user details
-            window.location.href = `test.html?name=${encodeURIComponent(name)}&roll=${encodeURIComponent(roll)}&subject=${encodeURIComponent(subject)}`;
-        }
+        });
     </script>
 
 </body>
