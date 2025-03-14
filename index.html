@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Online Test</title>
     <style>
-        /* 🌟 Stylish Background */
+        /* 🌙 Dark Mode Styling */
         body {
-            font-family: 'Poppins', Arial, sans-serif;
+            font-family: 'Times New Roman', serif; /* ✨ Gentle Font */
             text-align: center;
-            background: linear-gradient(135deg, #6a11cb, #2575fc);
-            color: white;
+            background-color: black; /* 🔥 Pure Black Background */
+            color: white; /* Contrast for readability */
             height: 100vh;
             display: flex;
             justify-content: center;
@@ -19,18 +19,18 @@
 
         /* 📌 Test Container */
         .container {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
             padding: 25px;
             max-width: 600px;
             width: 90%;
             border-radius: 15px;
-            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
-            color: black;
+            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.3);
+            position: relative;
         }
 
         /* ⏳ Timer Style */
         .timer {
-            font-size: 22px;
+            font-size: 24px;
             font-weight: bold;
             color: #ff4757;
             animation: pulse 1s infinite alternate;
@@ -70,6 +70,7 @@
             margin: 5px;
             transform: scale(1.2);
         }
+
     </style>
 </head>
 <body>
@@ -100,9 +101,7 @@
 
             if (timeLeft === 0) {
                 clearInterval(timer);
-                submitBtn.disabled = false;
-                submitBtn.classList.add("enabled");
-                submitBtn.textContent = "Submit Now!";
+                autoSubmit(); // 🛑 Auto-submit when time reaches 0
             } else {
                 timeLeft--;
             }
@@ -111,13 +110,27 @@
         // Start the countdown
         let timer = setInterval(updateTimer, 1000);
 
-        // Submit button functionality
+        // Auto-submit function
+        function autoSubmit() {
+            submitBtn.disabled = false;
+            submitBtn.classList.add("enabled");
+            submitBtn.textContent = "Submitting...";
+            setTimeout(() => {
+                alert("🛑 Time is up! Test submitted automatically.");
+                submitBtn.textContent = "Test Submitted ✅";
+                submitBtn.disabled = true;
+                submitBtn.style.background = "red";
+            }, 1000);
+        }
+
+        // Manual submit functionality
         submitBtn.addEventListener("click", function() {
             alert("Are you sure about submitting the test?");
             setTimeout(() => {
-                alert("🎉 It was a prank! You're Inducted Successfully! 🔥");
+                alert("🎉 Blablabla! 🔥");
             }, 500);
         });
+
     </script>
 
 </body>
