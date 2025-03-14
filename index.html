@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Online Test</title>
     <style>
-        /* 🌆 Background Image with Proper Scaling */
+        /* 🎨 Background with Faded Effect */
         body {
             font-family: 'Times New Roman', serif;
             text-align: center;
-            background: url('image.png') no-repeat center center fixed; 
-            background-size: cover;  /* Ensures full coverage */
+            background: url('background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
             height: 100vh;
             display: flex;
             justify-content: center;
@@ -18,7 +19,7 @@
             position: relative;
         }
 
-        /* 🎨 Faded Overlay for Better Visibility */
+        /* 🌫 Faded Overlay Effect */
         body::before {
             content: "";
             position: absolute;
@@ -26,70 +27,68 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.4); /* Adjust this value for more/less fade */
+            background: rgba(0, 0, 0, 0.5); /* Adjust opacity for fading */
             z-index: -1;
         }
 
-        /* 📌 Login Container */
+        /* 🔹 Login Box */
         .container {
-            background: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
-            padding: 30px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 25px;
             border-radius: 15px;
             box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.3);
             color: black;
             position: relative;
-            width: 350px; /* Adjust width */
+            width: 350px;
         }
 
-        /* 🏆 Logo Styling (Top-Right) */
+        /* 🏆 Logo Styling */
         .logo {
             position: absolute;
-            top: 15px;
-            right: 15px;
-            width: 80px;
+            top: 20px;
+            right: 20px;
+            width: 80px; /* Adjust size */
             height: auto;
         }
 
-        /* 🔷 Input Fields & Button */
+        /* 🔹 Input Fields & Buttons */
         input, select, button {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
+            padding: 12px;
+            margin: 10px;
+            width: 90%;
             font-size: 16px;
             border-radius: 5px;
             border: 1px solid gray;
+            display: block;
         }
 
-        /* ✅ Start Test Button */
         button {
             background-color: green;
             color: white;
             cursor: pointer;
             font-weight: bold;
-            transition: 0.3s;
         }
 
         button:hover {
             background-color: darkgreen;
         }
-
     </style>
 </head>
 <body>
 
-    <!-- 🏆 IGNITTE Logo (Top Right) -->
-    <img src="logo.png" alt="IGNITTE Logo" class="logo">
+    <!-- 🏆 Logo Image (Top Right) -->
+    <img src="logo.png" alt="Logo" class="logo">
 
     <div class="container">
         <h2>🔹 Enter Your Details</h2>
         <form id="loginForm">
-            <input type="text" id="name" placeholder="Enter your Name" required><br>
-            <input type="text" id="roll" placeholder="Enter your Roll Number" required><br>
+            <input type="text" id="name" placeholder="Enter your Name" required>
+            <input type="text" id="roll" placeholder="Enter your Roll Number" required>
             <select id="subject">
                 <option value="math">Math</option>
                 <option value="physics">Physics</option>
                 <option value="chemistry">Chemistry</option>
-            </select><br>
+            </select>
             <button type="submit">Start Test</button>
         </form>
     </div>
