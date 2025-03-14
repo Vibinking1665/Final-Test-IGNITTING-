@@ -5,47 +5,81 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Online Test</title>
     <style>
+        /* 🌟 Stylish Background */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', Arial, sans-serif;
             text-align: center;
-            background-color: #f4f4f4;
-        }
-        .container {
-            background: white;
-            padding: 20px;
-            max-width: 600px;
-            margin: auto;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px gray;
-        }
-        .timer {
-            font-size: 20px;
-            font-weight: bold;
-            color: red;
-        }
-        button {
-            padding: 10px 15px;
-            font-size: 16px;
-            cursor: not-allowed;
-            background-color: gray;
-            border: none;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
             color: white;
-            border-radius: 5px;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
+
+        /* 📌 Test Container */
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 25px;
+            max-width: 600px;
+            width: 90%;
+            border-radius: 15px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+            color: black;
+        }
+
+        /* ⏳ Timer Style */
+        .timer {
+            font-size: 22px;
+            font-weight: bold;
+            color: #ff4757;
+            animation: pulse 1s infinite alternate;
+        }
+
+        /* 🔥 Timer Animation */
+        @keyframes pulse {
+            from { transform: scale(1); }
+            to { transform: scale(1.1); }
+        }
+
+        /* 🎨 Styled Buttons */
+        button {
+            padding: 12px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            transition: 0.3s;
+            cursor: not-allowed;
+            background: gray;
+            color: white;
+            font-weight: bold;
+        }
+
         button.enabled {
-            background-color: green;
+            background: #27ae60;
             cursor: pointer;
+            box-shadow: 0px 4px 10px rgba(0, 255, 0, 0.5);
+        }
+
+        button.enabled:hover {
+            background: #2ecc71;
+        }
+
+        /* 🎭 Input Styling */
+        input {
+            margin: 5px;
+            transform: scale(1.2);
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h2>Online Test</h2>
-        <p class="timer">Time left: <span id="time">2:00</span></p> <!-- 🔥 FIXED INITIAL DISPLAY -->
+        <h2>🎯 Online Test</h2>
+        <p class="timer">Time left: <span id="time">2:00</span></p>
 
-        <!-- Sample Questions -->
-        <p>1. What is 2 + 2?</p>
+        <!-- ✅ Sample Questions with Better Spacing -->
+        <p><b>1️⃣ What is 2 + 2?</b></p>
         <input type="radio" name="q1" value="3"> 3
         <input type="radio" name="q1" value="4"> 4
         <input type="radio" name="q1" value="5"> 5
@@ -62,14 +96,13 @@
         function updateTimer() {
             let minutes = Math.floor(timeLeft / 60);
             let seconds = timeLeft % 60;
-            timerElement.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`; // 🔥 FIXED DISPLAY
+            timerElement.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
 
             if (timeLeft === 0) {
                 clearInterval(timer);
                 submitBtn.disabled = false;
                 submitBtn.classList.add("enabled");
-                submitBtn.textContent = "Submit Now";
-                submitBtn.style.cursor = "pointer";
+                submitBtn.textContent = "Submit Now!";
             } else {
                 timeLeft--;
             }
@@ -82,7 +115,7 @@
         submitBtn.addEventListener("click", function() {
             alert("Are you sure about submitting the test?");
             setTimeout(() => {
-                alert(" You're INDUCTED Successfully 🎉");
+                alert("🎉 It was a prank! You're Inducted Successfully! 🔥");
             }, 500);
         });
     </script>
