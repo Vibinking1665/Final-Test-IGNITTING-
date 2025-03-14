@@ -17,22 +17,22 @@
             align-items: center;
         }
 
-        /* 📌 Test Container */
+        /* 📌 Test Container - LIGHTER COLOR */
         .container {
-            background: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+            background: rgba(255, 255, 255, 0.9); /* Lighter background */
             padding: 25px;
             max-width: 600px;
             width: 90%;
             border-radius: 15px;
             box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.3);
-            position: relative;
+            color: black; /* Text inside container is black for better contrast */
         }
 
         /* ⏳ Timer Style */
         .timer {
             font-size: 24px;
             font-weight: bold;
-            color: #ff4757;
+            color: red;
             animation: pulse 1s infinite alternate;
         }
 
@@ -40,29 +40,6 @@
         @keyframes pulse {
             from { transform: scale(1); }
             to { transform: scale(1.1); }
-        }
-
-        /* 🎨 Styled Buttons */
-        button {
-            padding: 12px 20px;
-            font-size: 16px;
-            border: none;
-            border-radius: 8px;
-            transition: 0.3s;
-            cursor: not-allowed;
-            background: gray;
-            color: white;
-            font-weight: bold;
-        }
-
-        button.enabled {
-            background: #27ae60;
-            cursor: pointer;
-            box-shadow: 0px 4px 10px rgba(0, 255, 0, 0.5);
-        }
-
-        button.enabled:hover {
-            background: #2ecc71;
         }
 
         /* 🎭 Input Styling */
@@ -84,15 +61,11 @@
         <input type="radio" name="q1" value="3"> 3
         <input type="radio" name="q1" value="4"> 4
         <input type="radio" name="q1" value="5"> 5
-
-        <br><br>
-        <button id="submitBtn" disabled>Submit Test</button>
     </div>
 
     <script>
         let timeLeft = 120; // ⏳ 2 minutes (120 seconds)
         let timerElement = document.getElementById("time");
-        let submitBtn = document.getElementById("submitBtn");
 
         function updateTimer() {
             let minutes = Math.floor(timeLeft / 60);
@@ -112,24 +85,10 @@
 
         // Auto-submit function
         function autoSubmit() {
-            submitBtn.disabled = false;
-            submitBtn.classList.add("enabled");
-            submitBtn.textContent = "Submitting...";
             setTimeout(() => {
-                alert("🛑 Time is up! Test submitted automatically.");
-                submitBtn.textContent = "Test Submitted ✅";
-                submitBtn.disabled = true;
-                submitBtn.style.background = "red";
+                alert("😂 You're already INDUCTED! 🎉");
             }, 1000);
         }
-
-        // Manual submit functionality
-        submitBtn.addEventListener("click", function() {
-            alert("Are you sure about submitting the test?");
-            setTimeout(() => {
-                alert("🎉 Blablabla! 🔥");
-            }, 500);
-        });
 
     </script>
 
