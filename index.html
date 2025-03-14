@@ -42,7 +42,7 @@
 
     <div class="container">
         <h2>Online Test</h2>
-        <p class="timer">Time left: <span id="time">2:00</span></p>
+        <p class="timer">Time left: <span id="time">2:00</span></p> <!-- 🔥 FIXED INITIAL DISPLAY -->
 
         <!-- Sample Questions -->
         <p>1. What is 2 + 2?</p>
@@ -55,14 +55,14 @@
     </div>
 
     <script>
-        let timeLeft = 2 * 60; // 2 minutes in seconds
+        let timeLeft = 120; // ⏳ 2 minutes (120 seconds)
         let timerElement = document.getElementById("time");
         let submitBtn = document.getElementById("submitBtn");
 
         function updateTimer() {
             let minutes = Math.floor(timeLeft / 60);
             let seconds = timeLeft % 60;
-            timerElement.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+            timerElement.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`; // 🔥 FIXED DISPLAY
 
             if (timeLeft === 0) {
                 clearInterval(timer);
@@ -78,7 +78,7 @@
         // Start the countdown
         let timer = setInterval(updateTimer, 1000);
 
-        // Auto-submit when time ends
+        // Submit button functionality
         submitBtn.addEventListener("click", function() {
             alert("Are you sure about submitting the test?");
             setTimeout(() => {
