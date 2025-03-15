@@ -129,7 +129,8 @@
             let subject = document.getElementById("subject").value;
 
             if (name && roll) {
-                window.location.href = `test.html?name=${name}&roll=${roll}&subject=${subject}`;
+                // Redirect to testpage.html instead of test.html
+                window.location.href = `testpage.html?name=${name}&roll=${roll}&subject=${subject}`;
             } else {
                 alert("Please fill in all details.");
             }
