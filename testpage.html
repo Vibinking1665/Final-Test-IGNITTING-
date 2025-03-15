@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Online Test</title>
+    <title>Math Test - IGNITTE</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -44,6 +44,13 @@
             margin: 10px 0;
         }
 
+        .question input[type="radio"],
+        .question input[type="number"] {
+            margin: 10px;
+            font-size: 16px;
+            padding: 5px;
+        }
+
         button {
             padding: 12px 20px;
             font-size: 18px;
@@ -71,24 +78,100 @@
 <body>
 
     <div class="container">
-        <h2> IGNITTE FINAL TEST </h2>
+        <h2> 🔥 IGNITTE FINAL TEST - MATH 🔥 </h2>
         <p class="timer">Time left: <span id="time">2:00</span></p>
 
-        <!-- Sample Questions (Replace with actual images) -->
-        <div class="question">
-            <p><b>1️⃣ Solve this:</b></p>
-            <img src="q1.png" alt="Question 1">
-            <br>
-            <input type="radio" name="q1" value="A"> A
-            <input type="radio" name="q1" value="B"> B
-            <input type="radio" name="q1" value="C"> C
-            <input type="radio" name="q1" value="D"> D
-        </div>
+        <form id="testForm">
+            <!-- MCQ Questions -->
+            <div class="question">
+                <p><b>1️⃣ Solve this:</b></p>
+                <img src="mcq1.png" alt="Question 1">
+                <br>
+                <input type="radio" name="q1" value="A"> A
+                <input type="radio" name="q1" value="B"> B
+                <input type="radio" name="q1" value="C"> C
+                <input type="radio" name="q1" value="D"> D
+            </div>
 
-        <!-- Add 9 more questions like this with different images -->
+            <div class="question">
+                <p><b>2️⃣ Solve this:</b></p>
+                <img src="mcq2.png" alt="Question 2">
+                <br>
+                <input type="radio" name="q2" value="A"> A
+                <input type="radio" name="q2" value="B"> B
+                <input type="radio" name="q2" value="C"> C
+                <input type="radio" name="q2" value="D"> D
+            </div>
 
-        <br><br>
-        <button id="submitBtn" disabled>Submit Test</button>
+            <div class="question">
+                <p><b>3️⃣ Solve this:</b></p>
+                <img src="mcq3.png" alt="Question 3">
+                <br>
+                <input type="radio" name="q3" value="A"> A
+                <input type="radio" name="q3" value="B"> B
+                <input type="radio" name="q3" value="C"> C
+                <input type="radio" name="q3" value="D"> D
+            </div>
+
+            <div class="question">
+                <p><b>4️⃣ Solve this:</b></p>
+                <img src="mcq4.png" alt="Question 4">
+                <br>
+                <input type="radio" name="q4" value="A"> A
+                <input type="radio" name="q4" value="B"> B
+                <input type="radio" name="q4" value="C"> C
+                <input type="radio" name="q4" value="D"> D
+            </div>
+
+            <div class="question">
+                <p><b>5️⃣ Solve this:</b></p>
+                <img src="mcq5.png" alt="Question 5">
+                <br>
+                <input type="radio" name="q5" value="A"> A
+                <input type="radio" name="q5" value="B"> B
+                <input type="radio" name="q5" value="C"> C
+                <input type="radio" name="q5" value="D"> D
+            </div>
+
+            <!-- Integer Questions -->
+            <div class="question">
+                <p><b>6️⃣ Solve this:</b></p>
+                <img src="int1.png" alt="Question 6">
+                <br>
+                <input type="number" name="q6">
+            </div>
+
+            <div class="question">
+                <p><b>7️⃣ Solve this:</b></p>
+                <img src="int2.png" alt="Question 7">
+                <br>
+                <input type="number" name="q7">
+            </div>
+
+            <div class="question">
+                <p><b>8️⃣ Solve this:</b></p>
+                <img src="int3.png" alt="Question 8">
+                <br>
+                <input type="number" name="q8">
+            </div>
+
+            <div class="question">
+                <p><b>9️⃣ Solve this:</b></p>
+                <img src="int4.png" alt="Question 9">
+                <br>
+                <input type="number" name="q9">
+            </div>
+
+            <div class="question">
+                <p><b>🔟 Solve this:</b></p>
+                <img src="int5.png" alt="Question 10">
+                <br>
+                <input type="number" name="q10">
+            </div>
+
+            <br><br>
+            <button id="submitBtn" disabled>Submit Test</button>
+        </form>
     </div>
 
     <script>
@@ -114,7 +197,7 @@
             submitBtn.classList.add("enabled");
             submitBtn.innerHTML = "Submit Now!";
             submitBtn.onclick = function () {
-                window.location.href = "prank.html"; // Redirect to prank message
+                window.location.href = "inducted.html"; // Redirect to final message
             };
         }
 
