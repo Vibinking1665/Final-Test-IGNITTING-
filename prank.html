@@ -56,11 +56,16 @@
             to { opacity: 1; transform: scale(1); }
         }
 
-        h1 {
+        /* 🌟 Improved Congratulations Effect */
+        .congrats {
             font-size: 36px;
             font-weight: bold;
-            color: #f1c40f;
-            text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.7);
+            color: #FFD700; /* Gold/Yellow */
+            text-shadow: 
+                -2px -2px 0 black,  
+                2px -2px 0 black,  
+                -2px 2px 0 black,  
+                2px 2px 0 black; /* Creates a black border effect */
         }
 
         p {
@@ -82,7 +87,7 @@
     <!-- Centered Message Box -->
     <div class="message">
         <h1 class="emoji">🔥🎉</h1>
-        <h1>Congratulations!</h1>
+        <h1 class="congrats">Congratulations!</h1>
         <p>You are now officially INDUCTED into <b>IGNITTE</b>.</p>
         <p>Welcome to the journey of <b>Burn to Shine!</b> 🚀</p>
     </div>
