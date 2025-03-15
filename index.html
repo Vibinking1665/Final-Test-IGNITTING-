@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Online Test</title>
     
-    <!-- 🖋 Attractive Google Fonts -->
+    <!-- 🖋 Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     
     <style>
@@ -34,15 +34,16 @@
             z-index: -1;
         }
 
-        /* 📦 Form Container */
+        /* 📦 Semi-Transparent Glassmorphism Form Container */
         .container {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.2); /* More Transparent */
             padding: 40px;
             border-radius: 20px;
             box-shadow: 0px 5px 25px rgba(255, 255, 255, 0.3);
             width: 420px;
             text-align: center;
             position: relative;
+            backdrop-filter: blur(12px); /* Blur Effect */
         }
 
         /* 🏆 Logo Styling */
@@ -58,11 +59,11 @@
         h2 {
             font-weight: 700;
             font-size: 24px;
-            color: #222;
+            color: #fff;
             margin-bottom: 20px;
         }
 
-        /* 📥 Input Fields - Centered & Stylish */
+        /* 📥 Input Fields */
         input, select {
             width: 90%;
             padding: 12px;
@@ -111,7 +112,7 @@
         <h2>🔹 Enter Your Details</h2>
         <form id="loginForm">
             <input type="text" id="name" placeholder="Enter your Name" required><br>
-            <input type="text" id="roll" placeholder="Enter your Roll Number" required><br>
+            <input type="number" id="roll" placeholder="Enter your Roll Number" required><br> <!-- Roll Number Input Restriction -->
             <select id="subject">
                 <option value="math">Math</option>
                 <option value="physics">Physics</option>
@@ -124,16 +125,22 @@
     <script>
         document.getElementById("loginForm").addEventListener("submit", function(event) {
             event.preventDefault();
-            let name = document.getElementById("name").value;
-            let roll = document.getElementById("roll").value;
+            let name = document.getElementById("name").value.trim();
+            let roll = document.getElementById("roll").value.trim();
             let subject = document.getElementById("subject").value;
 
-            if (name && roll) {
-                // Redirect to testpage.html instead of test.html
-                window.location.href = `testpage.html?name=${name}&roll=${roll}&subject=${subject}`;
-            } else {
+            if (name === "" || roll === "") {
                 alert("Please fill in all details.");
+                return;
             }
+
+            if (!/^\d+$/.test(roll)) { // Ensure Roll Number is ONLY digits
+                alert("Roll Number should contain only numbers.");
+                return;
+            }
+
+            // Redirect to testpage.html with parameters
+            window.location.href = `testpage.html?name=${name}&roll=${roll}&subject=${subject}`;
         });
     </script>
 
