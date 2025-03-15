@@ -149,8 +149,15 @@
                 return;
             }
 
-            // Redirect to testpage.html with parameters
-            window.location.href = `testpage.html?name=${name}&roll=${roll}&subject=${subject}`;
+            // Store subject in sessionStorage
+            sessionStorage.setItem("selectedSubject", subject);
+
+            // Redirect based on subject
+            if (subject === "math") {
+                window.location.href = `mathtestpage.html?name=${name}&roll=${roll}&subject=${subject}`;
+            } else {
+                window.location.href = `testpage.html?name=${name}&roll=${roll}&subject=${subject}`;
+            }
         });
     </script>
 
