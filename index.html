@@ -36,14 +36,14 @@
 
         /* 📦 Semi-Transparent Glassmorphism Form Container */
         .container {
-            background: rgba(255, 255, 255, 0.2); /* More Transparent */
+            background: rgba(255, 255, 255, 0.2);
             padding: 40px;
             border-radius: 20px;
             box-shadow: 0px 5px 25px rgba(255, 255, 255, 0.3);
             width: 420px;
             text-align: center;
             position: relative;
-            backdrop-filter: blur(12px); /* Blur Effect */
+            backdrop-filter: blur(12px);
         }
 
         /* 🏆 Logo Styling */
@@ -74,6 +74,7 @@
             outline: none;
             transition: all 0.3s ease-in-out;
             text-align: center;
+            color: #aaa; /* Faded effect */
         }
 
         /* 🖌 Stylish Input Focus Effect */
@@ -101,6 +102,11 @@
             background: linear-gradient(45deg, #e63946, #b71c1c);
             box-shadow: 0px 5px 15px rgba(255, 0, 0, 0.4);
         }
+
+        /* 👌 Dropdown Placeholder Effect */
+        select:valid {
+            color: #000; /* Change to black when selected */
+        }
     </style>
 </head>
 <body>
@@ -112,13 +118,16 @@
         <h2>🔹 Enter Your Details</h2>
         <form id="loginForm">
             <input type="text" id="name" placeholder="Enter your Name" required><br>
-            <input type="number" id="roll" placeholder="Enter your Roll Number" required oninput="validateRollNumber(this)"><br> <!-- Roll Number Input Restriction -->
+            <input type="number" id="roll" placeholder="Enter your Roll Number" required><br>
+
+            <!-- 👇 Updated Dropdown -->
             <select id="subject" required>
-                <option value="" disabled selected>Choose one from the drop list</option>
+                <option value="" disabled selected hidden>Choose one from the drop list</option>
                 <option value="math">Math</option>
                 <option value="physics">Physics</option>
                 <option value="chemistry">Chemistry</option>
             </select><br>
+
             <button type="submit">Start Test</button>
         </form>
     </div>
@@ -135,7 +144,7 @@
                 return;
             }
 
-            if (!/^\d+$/.test(roll)) { // Ensure Roll Number is ONLY digits
+            if (!/^\d+$/.test(roll)) {
                 alert("Roll Number should contain only numbers.");
                 return;
             }
@@ -143,11 +152,6 @@
             // Redirect to testpage.html with parameters
             window.location.href = `testpage.html?name=${name}&roll=${roll}&subject=${subject}`;
         });
-
-        function validateRollNumber(input) {
-            // Prevent negative numbers and non-numeric characters
-            input.value = input.value.replace(/[^0-9]/g, '');
-        }
     </script>
 
 </body>
