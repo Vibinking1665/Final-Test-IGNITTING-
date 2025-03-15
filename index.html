@@ -112,8 +112,9 @@
         <h2>🔹 Enter Your Details</h2>
         <form id="loginForm">
             <input type="text" id="name" placeholder="Enter your Name" required><br>
-            <input type="number" id="roll" placeholder="Enter your Roll Number" required><br> <!-- Roll Number Input Restriction -->
-            <select id="subject">
+            <input type="number" id="roll" placeholder="Enter your Roll Number" required oninput="validateRollNumber(this)"><br> <!-- Roll Number Input Restriction -->
+            <select id="subject" required>
+                <option value="" disabled selected>Choose one from the drop list</option>
                 <option value="math">Math</option>
                 <option value="physics">Physics</option>
                 <option value="chemistry">Chemistry</option>
@@ -129,7 +130,7 @@
             let roll = document.getElementById("roll").value.trim();
             let subject = document.getElementById("subject").value;
 
-            if (name === "" || roll === "") {
+            if (name === "" || roll === "" || subject === "") {
                 alert("Please fill in all details.");
                 return;
             }
@@ -142,6 +143,11 @@
             // Redirect to testpage.html with parameters
             window.location.href = `testpage.html?name=${name}&roll=${roll}&subject=${subject}`;
         });
+
+        function validateRollNumber(input) {
+            // Prevent negative numbers and non-numeric characters
+            input.value = input.value.replace(/[^0-9]/g, '');
+        }
     </script>
 
 </body>
