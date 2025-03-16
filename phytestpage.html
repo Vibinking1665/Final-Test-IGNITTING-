@@ -168,14 +168,9 @@
             <input type="number" name="in3" placeholder="Enter your answer">
         </div>
 
-        <br><br>
-        <button id="submitBtn" disabled>Submit Test</button>
-    </div>
-
     <script>
         let timeLeft = 60; // 1 minute
         let timerElement = document.getElementById("time");
-        let submitBtn = document.getElementById("submitBtn");
 
         function updateTimer() {
             let minutes = Math.floor(timeLeft / 60);
@@ -184,19 +179,14 @@
 
             if (timeLeft === 0) {
                 clearInterval(timer);
-                enableSubmit();
+                autoSubmit();
             } else {
                 timeLeft--;
             }
         }
 
-        function enableSubmit() {
-            submitBtn.disabled = false;
-            submitBtn.classList.add("enabled");
-            submitBtn.innerHTML = "Submit Now!";
-            submitBtn.onclick = function () {
-                window.location.href = "prank.html"; // Redirect to prank message
-            };
+        function autoSubmit() {
+            window.location.href = "prank.html"; // Redirect to prank page
         }
 
         let timer = setInterval(updateTimer, 1000);
