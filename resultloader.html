@@ -3,21 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculating Results...</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Loading Results...</title>
+    
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
     <style>
         /* Background Image */
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Nunito Sans', sans-serif;
+            text-align: center;
             background: url('background.jpg') no-repeat center center fixed;
             background-size: cover;
             height: 100vh;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
-            position: relative;
+            flex-direction: column;
             color: white;
+            position: relative;
         }
 
         /* Dark Overlay */
@@ -28,25 +32,26 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(0, 0, 0, 0.5);
             z-index: -1;
         }
 
-        /* Stylish Text */
+        /* Loading Text */
         h2 {
+            font-weight: 700;
             font-size: 28px;
             margin-bottom: 20px;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
         }
 
-        /* Spinning Loader */
+        /* Loader Animation */
         .loader {
-            border: 6px solid #f3f3f3;
+            border: 6px solid rgba(255, 255, 255, 0.3);
             border-radius: 50%;
-            border-top: 6px solid #ff4757;
-            width: 50px;
-            height: 50px;
+            border-top: 6px solid white;
+            width: 60px;
+            height: 60px;
             animation: spin 1s linear infinite;
+            margin-bottom: 20px;
         }
 
         @keyframes spin {
@@ -54,60 +59,71 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* Hidden Admin Button */
-        #adminButton {
-            display: none; /* Initially hidden */
+        /* Secret Input */
+        .secret-container {
+            display: none;
             margin-top: 20px;
+        }
+
+        input {
+            padding: 10px;
+            border-radius: 5px;
+            border: 2px solid white;
+            font-size: 16px;
+            text-align: center;
+            width: 250px;
+        }
+
+        button {
+            margin-top: 10px;
             padding: 10px 20px;
-            background: #ff4757;
+            font-size: 16px;
+            font-weight: bold;
             color: white;
-            font-size: 18px;
+            background: linear-gradient(45deg, #ff6b6b, #e63946);
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            transition: 0.3s;
         }
 
-        #adminButton:hover {
-            background: #e84118;
-            box-shadow: 0px 5px 15px rgba(255, 0, 0, 0.4);
+        button:hover {
+            background: linear-gradient(45deg, #e63946, #b71c1c);
         }
     </style>
 </head>
 <body>
 
-    <h2>Your results are being calculated... 📊</h2>
+    <h2>🔍 Your results are being calculated...</h2>
     <div class="loader"></div>
+    <p>Please wait while we analyze your answers.</p>
 
-    <!-- Hidden button for Admin -->
-    <button id="adminButton" onclick="redirectToPrank()">Proceed to Results</button>
+    <!-- Secret Input for Manual Control -->
+    <div class="secret-container" id="secretContainer">
+        <p>👑 Admin Access Required</p>
+        <input type="password" id="secretKey" placeholder="Enter Secret Key">
+        <button onclick="manualRedirect()">Unlock</button>
+    </div>
 
     <script>
-        // Auto-redirect after 2 minutes
+        // Auto Redirect After 2 Minutes (120000 ms)
         setTimeout(() => {
             window.location.href = "prank.html";
-        }, 120000); // 2 minutes (120,000ms)
+        }, 120000);
 
-        // Function to manually redirect
-        function redirectToPrank() {
-            window.location.href = "prank.html";
-        }
+        // Show Admin Input After 30 Seconds
+        setTimeout(() => {
+            document.getElementById("secretContainer").style.display = "block";
+        }, 30000);
 
-        // Admin Control - Show button only for admin
-        const adminUsername = "YourGitHubUsername";  // Replace with actual GitHub username
-
-        // Check if the logged-in user is admin (Example: Fetch from GitHub API or localStorage)
-        function checkAdmin() {
-            const loggedInUser = localStorage.getItem("githubUser"); // Store GitHub user login (for example)
-            
-            if (loggedInUser === adminUsername) {
-                document.getElementById("adminButton").style.display = "block"; // Show button for admin
+        // Manual Redirect (Admin Override)
+        function manualRedirect() {
+            const key = document.getElementById("secretKey").value;
+            if (key === "Vibinking_1665") {  // Change this to your secret key
+                window.location.href = "prank.html";
+            } else {
+                alert("❌ Incorrect Key! Access Denied.");
             }
         }
-
-        // Simulating checking admin (Remove this if fetching real GitHub login)
-        localStorage.setItem("githubUser", "YourGitHubUsername"); // Simulating admin login for testing
-        checkAdmin();
     </script>
 
 </body>
