@@ -53,6 +53,25 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+
+        /* Hidden Admin Button */
+        #adminButton {
+            display: none; /* Initially hidden */
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #ff4757;
+            color: white;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        #adminButton:hover {
+            background: #e84118;
+            box-shadow: 0px 5px 15px rgba(255, 0, 0, 0.4);
+        }
     </style>
 </head>
 <body>
@@ -60,10 +79,35 @@
     <h2>Your results are being calculated... 📊</h2>
     <div class="loader"></div>
 
+    <!-- Hidden button for Admin -->
+    <button id="adminButton" onclick="redirectToPrank()">Proceed to Results</button>
+
     <script>
+        // Auto-redirect after 2 minutes
         setTimeout(() => {
-            window.location.href = "prank.html"; // Redirect to prank page after 2 minutes
+            window.location.href = "prank.html";
         }, 120000); // 2 minutes (120,000ms)
+
+        // Function to manually redirect
+        function redirectToPrank() {
+            window.location.href = "prank.html";
+        }
+
+        // Admin Control - Show button only for admin
+        const adminUsername = "YourGitHubUsername";  // Replace with actual GitHub username
+
+        // Check if the logged-in user is admin (Example: Fetch from GitHub API or localStorage)
+        function checkAdmin() {
+            const loggedInUser = localStorage.getItem("githubUser"); // Store GitHub user login (for example)
+            
+            if (loggedInUser === adminUsername) {
+                document.getElementById("adminButton").style.display = "block"; // Show button for admin
+            }
+        }
+
+        // Simulating checking admin (Remove this if fetching real GitHub login)
+        localStorage.setItem("githubUser", "YourGitHubUsername"); // Simulating admin login for testing
+        checkAdmin();
     </script>
 
 </body>
