@@ -25,24 +25,27 @@
             margin: auto;
         }
 
+        .message {
+            font-size: 20px;
+            font-weight: bold;
+            color: yellow;
+        }
+
+        .hidden {
+            display: none;
+        }
+
         .question img {
             width: 100%;
             max-width: 400px;
             border-radius: 10px;
             margin: 10px 0;
         }
-
-        .message {
-            font-size: 20px;
-            font-weight: bold;
-            color: #ffdd57;
-            margin-top: 20px;
-        }
     </style>
 </head>
 <body>
 
-    <div class="container">
+<div class="container">
         <h2> IGNITTE PHYSICS TEST </h2>
 
         <!-- Questions (MCQs & Integer Type) -->
@@ -139,9 +142,7 @@
             <input type="number" name="in3" placeholder="Enter your answer">
         </div>
 
-    </div>
-
-       <script>
+    <script>
         function checkTime() {
             let now = new Date();
             let hours = now.getHours();
@@ -160,11 +161,15 @@
             document.getElementById("testMessage").classList.add("hidden");
             document.getElementById("testContent").classList.remove("hidden");
 
-            let timeRemaining = (50 - minutes) * 60 * 1000;
+            let testEndTime = new Date();
+            testEndTime.setHours(17, 50, 0, 0); // 5:50 PM
+            let timeRemaining = testEndTime - now;
+
             setTimeout(() => window.location.href = "resultloader.html", timeRemaining);
         }
 
         checkTime();
     </script>
+
 </body>
 </html>
