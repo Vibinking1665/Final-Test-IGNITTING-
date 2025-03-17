@@ -126,6 +126,7 @@ m<!DOCTYPE html>
                 <option value="math">Math</option>
                 <option value="physics">Physics</option>
                 <option value="chemistry">Chemistry</option>
+                <option value="design">Design</option>
             </select><br>
 
             <button type="submit">Start Test</button>
@@ -157,9 +158,12 @@ m<!DOCTYPE html>
                 window.location.href = `mathtestpage.html?name=${name}&roll=${roll}&subject=${subject}`;
             } else if (subject === "physics") {
                 window.location.href = `phytestpage.html?name=${name}&roll=${roll}&subject=${subject}`;
-            } else {
+            } else if ( subject === "chemistry" ) {
                 window.location.href = `chemtestpage.html?name=${name}&roll=${roll}&subject=${subject}`;
-            }
+            } else {
+                window.location.href = `designtest.html?name=${name}&roll=${roll}&subject=${subject}`;
+                
+            
         });
     </script>
 
