@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Design Test</title>
+    <title>Sample Test</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -25,12 +25,6 @@
             margin: auto;
         }
 
-
-        @keyframes pulse {
-            from { transform: scale(1); }
-            to { transform: scale(1.1); }
-        }
-
         .message {
             font-size: 20px;
             font-weight: bold;
@@ -41,132 +35,36 @@
             display: none;
         }
 
-        .question img {
-            width: 100%;
-            max-width: 600px;
-            border-radius: 10px;
-            margin: 10px 0;
-        }
-
         .question {
             margin-bottom: 20px;
             padding: 10px;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
         }
-
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h2> IGNITTE DESIGN TEST </h2>
+        <h2> SAMPLE TEST </h2>
         <p id="testMessage" class="message"></p>
-        <p class="timer hidden">Time left: <span id="time">1:00</span></p>
 
         <div id="testContent" class="hidden">
-            <!-- 10 MCQ Questions -->
-            
             <div class="question">
-                <p><b>1️⃣ Question:</b></p>
-                <img src="A1.png" alt="MCQ 1">
-                <br>
-                <input type="radio" name="A1" value="A"> A
-                <input type="radio" name="A1" value="B"> B
-                <input type="radio" name="A1" value="C"> C
-                <input type="radio" name="A1" value="D"> D
+                <p><b>1️⃣ What is 2 + 2?</b></p>
+                <input type="radio" name="Q1" value="A"> A) 3
+                <input type="radio" name="Q1" value="B"> B) 4
+                <input type="radio" name="Q1" value="C"> C) 5
+                <input type="radio" name="Q1" value="D"> D) 6
             </div>
 
             <div class="question">
-                <p><b>2️⃣ Question:</b></p>
-                <img src="A2.png" alt="MCQ 2">
-                <br>
-                <input type="radio" name="A2" value="A"> A
-                <input type="radio" name="A2" value="B"> B
-                <input type="radio" name="A2" value="C"> C
-                <input type="radio" name="A2" value="D"> D
+                <p><b>2️⃣ What is the capital of India?</b></p>
+                <input type="radio" name="Q2" value="A"> A) Mumbai
+                <input type="radio" name="Q2" value="B"> B) Delhi
+                <input type="radio" name="Q2" value="C"> C) Kolkata
+                <input type="radio" name="Q2" value="D"> D) Chennai
             </div>
-
-            <div class="question">
-                <p><b>3️⃣ Question:</b></p>
-                <img src="A3.png" alt="MCQ 3">
-                <br>
-                <input type="radio" name="A3" value="A"> A
-                <input type="radio" name="A3" value="B"> B
-                <input type="radio" name="A3" value="C"> C
-                <input type="radio" name="A3" value="D"> D
-            </div>
-
-            <div class="question">
-                <p><b>4️⃣ Question:</b></p>
-                <img src="A4.png" alt="MCQ 4">
-                <br>
-                <input type="radio" name="A4" value="A"> A
-                <input type="radio" name="A4" value="B"> B
-                <input type="radio" name="A4" value="C"> C
-                <input type="radio" name="A4" value="D"> D
-            </div>
-
-            <div class="question">
-                <p><b>5️⃣ Question:</b></p>
-                <img src="A5.png" alt="MCQ 5">
-                <br>
-                <input type="radio" name="A5" value="A"> A
-                <input type="radio" name="A5" value="B"> B
-                <input type="radio" name="A5" value="C"> C
-                <input type="radio" name="A5" value="D"> D
-            </div>
-
-            <div class="question">
-                <p><b>6️⃣ Question:</b></p>
-                <img src="A6.png" alt="MCQ 6">
-                <br>
-                <input type="radio" name="A6" value="A"> A
-                <input type="radio" name="A6" value="B"> B
-                <input type="radio" name="A6" value="C"> C
-                <input type="radio" name="A6" value="D"> D
-            </div>
-
-            <div class="question">
-                <p><b>7️⃣ Question:</b></p>
-                <img src="A7.png" alt="MCQ 7">
-                <br>
-                <input type="radio" name="A7" value="A"> A
-                <input type="radio" name="A7" value="B"> B
-                <input type="radio" name="A7" value="C"> C
-                <input type="radio" name="A7" value="D"> D
-            </div>
-
-            <div class="question">
-                <p><b>8️⃣ Question:</b></p>
-                <img src="A8.png" alt="MCQ 8">
-                <br>
-                <input type="radio" name="A8" value="A"> A
-                <input type="radio" name="A8" value="B"> B
-                <input type="radio" name="A8" value="C"> C
-                <input type="radio" name="A8" value="D"> D
-            </div>
-
-            <div class="question">
-                <p><b>9️⃣ Question:</b></p>
-                <img src="A9.png" alt="MCQ 9">
-                <br>
-                <input type="radio" name="A9" value="A"> A
-                <input type="radio" name="A9" value="B"> B
-                <input type="radio" name="A9" value="C"> C
-                <input type="radio" name="A9" value="D"> D
-            </div>
-
-            <div class="question">
-                <p><b>🔟 Question:</b></p>
-                <img src="A10.png" alt="MCQ 10">
-                <br>
-                <input type="radio" name="A10" value="A"> A
-                <input type="radio" name="A10" value="B"> B
-                <input type="radio" name="A10" value="C"> C
-                <input type="radio" name="A10" value="D"> D
-            </div>
-
         </div>
     </div>
 
@@ -176,18 +74,21 @@
             let hours = now.getHours();
             let minutes = now.getMinutes();
 
-            let startHour = 17, startMinute = 35; // 5:35 PM
-            let endHour = 17, endMinute = 50; // 5:50 PM
-
-            if (hours < startHour || (hours === startHour && minutes < startMinute)) {
-                document.getElementById("testMessage").textContent = "Test will start at 5:35 PM.";
+            if (hours === 0 && minutes < 30) {
+                document.getElementById("testMessage").textContent = "Test will start at 12:30 AM.";
                 return;
             } 
-            
+
+            if (hours === 0 && minutes >= 32) {
+                document.getElementById("testMessage").textContent = "Test has ended.";
+                return;
+            }
+
             document.getElementById("testMessage").classList.add("hidden");
             document.getElementById("testContent").classList.remove("hidden");
 
-            setTimeout(() => window.location.href = "resultloader.html", 900000); // Auto-submit after 15 min
+            let timeRemaining = (32 - minutes) * 60 * 1000;
+            setTimeout(() => window.location.href = "resultloader.html", timeRemaining);
         }
 
         checkTime();
