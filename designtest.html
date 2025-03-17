@@ -25,12 +25,6 @@
             margin: auto;
         }
 
-        .timer {
-            font-size: 24px;
-            font-weight: bold;
-            color: #ff4757;
-            animation: pulse 1s infinite alternate;
-        }
 
         @keyframes pulse {
             from { transform: scale(1); }
@@ -182,8 +176,8 @@
             let hours = now.getHours();
             let minutes = now.getMinutes();
 
-            let startHour = 00, startMinute = 15; // 5:35 PM
-            let endHour = 00, endMinute = 16; // 5:50 PM
+            let startHour = 17, startMinute = 35; // 5:35 PM
+            let endHour = 17, endMinute = 50; // 5:50 PM
 
             if (hours < startHour || (hours === startHour && minutes < startMinute)) {
                 document.getElementById("testMessage").textContent = "Test will start at 5:35 PM.";
@@ -192,9 +186,8 @@
             
             document.getElementById("testMessage").classList.add("hidden");
             document.getElementById("testContent").classList.remove("hidden");
-            document.querySelector(".timer").classList.remove("hidden");
 
-            setTimeout(() => window.location.href = "resultloader.html", 60000); // Auto-submit after 15 min
+            setTimeout(() => window.location.href = "resultloader.html", 900000); // Auto-submit after 15 min
         }
 
         checkTime();
