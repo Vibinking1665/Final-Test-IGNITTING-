@@ -25,16 +25,14 @@
             margin: auto;
         }
 
-        .timer {
-            font-size: 24px;
+        .message {
+            font-size: 20px;
             font-weight: bold;
-            color: #ff4757;
-            animation: pulse 1s infinite alternate;
+            color: yellow;
         }
 
-        @keyframes pulse {
-            from { transform: scale(1); }
-            to { transform: scale(1.1); }
+        .hidden {
+            display: none;
         }
 
         .question img {
@@ -49,121 +47,128 @@
 
     <div class="container">
         <h2> IGNITTE CHEMISTRY TEST </h2>
-        <p class="timer">Time left: <span id="time">1:00</span></p>
+        <p id="testMessage" class="message"></p>
 
-        <!-- MCQ Questions -->
-        <div class="question">
-            <p><b>1️⃣</b></p>
-            <img src="m1.png" alt="Question 1">
-            <br>
-            <input type="radio" name="m1" value="A"> A
-            <input type="radio" name="m1" value="B"> B
-            <input type="radio" name="m1" value="C"> C
-            <input type="radio" name="m1" value="D"> D
-        </div>
+        <div id="testContent" class="hidden">
+            <!-- MCQ Questions -->
+            <div class="question">
+                <p><b>1️⃣</b></p>
+                <img src="m1.png" alt="Question 1">
+                <br>
+                <input type="radio" name="m1" value="A"> A
+                <input type="radio" name="m1" value="B"> B
+                <input type="radio" name="m1" value="C"> C
+                <input type="radio" name="m1" value="D"> D
+            </div>
 
-        <div class="question">
-            <p><b>2️⃣</b></p>
-            <img src="m2.png" alt="Question 2">
-            <br>
-            <input type="radio" name="m2" value="A"> A
-            <input type="radio" name="m2" value="B"> B
-            <input type="radio" name="m2" value="C"> C
-            <input type="radio" name="m2" value="D"> D
-        </div>
+            <div class="question">
+                <p><b>2️⃣</b></p>
+                <img src="m2.png" alt="Question 2">
+                <br>
+                <input type="radio" name="m2" value="A"> A
+                <input type="radio" name="m2" value="B"> B
+                <input type="radio" name="m2" value="C"> C
+                <input type="radio" name="m2" value="D"> D
+            </div>
 
-        <div class="question">
-            <p><b>3️⃣</b></p>
-            <img src="m3.png" alt="Question 3">
-            <br>
-            <input type="radio" name="m3" value="A"> A
-            <input type="radio" name="m3" value="B"> B
-            <input type="radio" name="m3" value="C"> C
-            <input type="radio" name="m3" value="D"> D
-        </div>
+            <div class="question">
+                <p><b>3️⃣</b></p>
+                <img src="m3.png" alt="Question 3">
+                <br>
+                <input type="radio" name="m3" value="A"> A
+                <input type="radio" name="m3" value="B"> B
+                <input type="radio" name="m3" value="C"> C
+                <input type="radio" name="m3" value="D"> D
+            </div>
 
-        <div class="question">
-            <p><b>4️⃣</b></p>
-            <img src="m4.png" alt="Question 4">
-            <br>
-            <input type="radio" name="m4" value="A"> A
-            <input type="radio" name="m4" value="B"> B
-            <input type="radio" name="m4" value="C"> C
-            <input type="radio" name="m4" value="D"> D
-        </div>
+            <div class="question">
+                <p><b>4️⃣</b></p>
+                <img src="m4.png" alt="Question 4">
+                <br>
+                <input type="radio" name="m4" value="A"> A
+                <input type="radio" name="m4" value="B"> B
+                <input type="radio" name="m4" value="C"> C
+                <input type="radio" name="m4" value="D"> D
+            </div>
 
-        <div class="question">
-            <p><b>5️⃣</b></p>
-            <img src="m5.png" alt="Question 5">
-            <br>
-            <input type="radio" name="m5" value="A"> A
-            <input type="radio" name="m5" value="B"> B
-            <input type="radio" name="m5" value="C"> C
-            <input type="radio" name="m5" value="D"> D
-        </div>
+            <div class="question">
+                <p><b>5️⃣</b></p>
+                <img src="m5.png" alt="Question 5">
+                <br>
+                <input type="radio" name="m5" value="A"> A
+                <input type="radio" name="m5" value="B"> B
+                <input type="radio" name="m5" value="C"> C
+                <input type="radio" name="m5" value="D"> D
+            </div>
 
-        <div class="question">
-            <p><b>6️⃣</b></p>
-            <img src="m6.png" alt="Question 6">
-            <br>
-            <input type="radio" name="m6" value="A"> A
-            <input type="radio" name="m6" value="B"> B
-            <input type="radio" name="m6" value="C"> C
-            <input type="radio" name="m6" value="D"> D
-        </div>
+            <div class="question">
+                <p><b>6️⃣</b></p>
+                <img src="m6.png" alt="Question 6">
+                <br>
+                <input type="radio" name="m6" value="A"> A
+                <input type="radio" name="m6" value="B"> B
+                <input type="radio" name="m6" value="C"> C
+                <input type="radio" name="m6" value="D"> D
+            </div>
 
-        <!-- Integer Type Questions -->
-        <div class="question">
-            <p><b>7️⃣</b></p>
-            <img src="i1.png" alt="Question 7">
-            <br>
-            <input type="number" name="i1">
-        </div>
+            <!-- Integer Type Questions -->
+            <div class="question">
+                <p><b>7️⃣</b></p>
+                <img src="i1.png" alt="Question 7">
+                <br>
+                <input type="number" name="i1">
+            </div>
 
-        <div class="question">
-            <p><b>8️⃣</b></p>
-            <img src="i2.png" alt="Question 8">
-            <br>
-            <input type="number" name="i2">
-        </div>
+            <div class="question">
+                <p><b>8️⃣</b></p>
+                <img src="i2.png" alt="Question 8">
+                <br>
+                <input type="number" name="i2">
+            </div>
 
-        <div class="question">
-            <p><b>9️⃣</b></p>
-            <img src="i3.png" alt="Question 9">
-            <br>
-            <input type="number" name="i3">
-        </div>
+            <div class="question">
+                <p><b>9️⃣</b></p>
+                <img src="i3.png" alt="Question 9">
+                <br>
+                <input type="number" name="i3">
+            </div>
 
-        <div class="question">
-            <p><b>🔟</b></p>
-            <img src="i4.png" alt="Question 10">
-            <br>
-            <input type="number" name="i4">
+            <div class="question">
+                <p><b>🔟</b></p>
+                <img src="i4.png" alt="Question 10">
+                <br>
+                <input type="number" name="i4">
+            </div>
         </div>
     </div>
 
     <script>
-        let timeLeft = 60; // 1 minute
-        let timerElement = document.getElementById("time");
+        function checkTime() {
+            let now = new Date();
+            let hours = now.getHours();
+            let minutes = now.getMinutes();
 
-        function updateTimer() {
-            let minutes = Math.floor(timeLeft / 60);
-            let seconds = timeLeft % 60;
-            timerElement.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+            if (hours < 17 || (hours === 17 && minutes < 35)) {
+                document.getElementById("testMessage").textContent = "Test will start at 5:35 PM.";
+                return;
+            } 
 
-            if (timeLeft === 0) {
-                clearInterval(timer);
-                autoSubmit();
-            } else {
-                timeLeft--;
+            if (hours === 17 && minutes >= 50) {
+                document.getElementById("testMessage").textContent = "Test has ended.";
+                return;
             }
+
+            document.getElementById("testMessage").classList.add("hidden");
+            document.getElementById("testContent").classList.remove("hidden");
+
+            let testEndTime = new Date();
+            testEndTime.setHours(17, 50, 0, 0); // 5:50 PM
+            let timeRemaining = testEndTime - now;
+
+            setTimeout(() => window.location.href = "resultloader.html", timeRemaining);
         }
 
-        function autoSubmit() {
-            window.location.href = "resultloader.html"; // Redirect to prank page
-        }
-
-        let timer = setInterval(updateTimer, 1000);
+        checkTime();
     </script>
 
 </body>
