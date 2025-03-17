@@ -26,16 +26,11 @@
             margin: auto;
         }
 
-        .timer {
-            font-size: 24px;
+        .message {
+            font-size: 20px;
             font-weight: bold;
-            color: #ff4757;
-            animation: pulse 1s infinite alternate;
-        }
-
-        @keyframes pulse {
-            from { transform: scale(1); }
-            to { transform: scale(1.1); }
+            color: #ffdd57;
+            margin-top: 20px;
         }
 
         .question img {
@@ -44,44 +39,16 @@
             border-radius: 10px;
             margin: 10px 0;
         }
-
-        input, select {
-            font-size: 16px;
-            padding: 5px;
-            margin: 10px;
-        }
-
-        button {
-            padding: 12px 20px;
-            font-size: 18px;
-            border: none;
-            border-radius: 8px;
-            transition: 0.3s;
-            cursor: not-allowed;
-            background: gray;
-            color: white;
-            font-weight: bold;
-            width: 100%;
-        }
-
-        button.enabled {
-            background: #27ae60;
-            cursor: pointer;
-            box-shadow: 0px 4px 10px rgba(0, 255, 0, 0.5);
-        }
-
-        button.enabled:hover {
-            background: #2ecc71;
-        }
     </style>
 </head>
 <body>
 
     <div class="container">
         <h2> IGNITTE FINAL TEST </h2>
-        <p class="timer">Time left: <span id="time">1:00</span></p>
 
-        <!-- 📝 MCQ Questions -->
+        <p class="message" id="redirectMessage">Waiting for the right time...</p>
+
+        <!-- Questions (MCQs & Integer Type) -->
         <div class="question">
             <p><b>1️⃣ Question 1:</b></p>
             <img src="mcq1.png" alt="MCQ 1">
@@ -132,7 +99,7 @@
             <input type="radio" name="q5" value="D"> D
         </div>
 
-        <!-- 🔢 Integer Type Questions -->
+        <!-- Integer Type Questions -->
         <div class="question">
             <p><b>6️⃣ Solve this:</b></p>
             <img src="int1.png" alt="Integer Q1">
@@ -167,29 +134,36 @@
             <br>
             <input type="number" name="int5" placeholder="Enter answer">
         </div>
+    </div>
 
     <script>
-        let timeLeft = 60; // 1 minute
-        let timerElement = document.getElementById("time");
+        function checkTime() {
+            let now = new Date();
+            let hours = now.getHours();
+            let minutes = now.getMinutes();
 
-        function updateTimer() {
-            let minutes = Math.floor(timeLeft / 60);
-            let seconds = timeLeft % 60;
-            timerElement.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+            let startHour = 17; // 5:35 PM
+            let startMin = 35;
+            let endHour = 17; // 5:50 PM
+            let endMin = 50;
 
-            if (timeLeft === 0) {
-                clearInterval(timer);
-                autoSubmit();
+            let message = document.getElementById("redirectMessage");
+
+            if (
+                (hours === startHour && minutes >= startMin) ||
+                (hours === endHour && minutes <= endMin) ||
+                (hours > startHour && hours < endHour)
+            ) {
+                message.innerHTML = "Redirecting to results...";
+                setTimeout(() => {
+                    window.location.href = "resultloader.html";
+                }, 2000);
             } else {
-                timeLeft--;
+                message.innerHTML = "Test is available only between 5:35 PM and 5:50 PM.";
             }
         }
 
-        function autoSubmit() {
-            window.location.href = "resultloader.html"; // Redirect to prank page
-        }
-
-        let timer = setInterval(updateTimer, 1000);
+        setInterval(checkTime, 1000); // Check every second
     </script>
 
 </body>
