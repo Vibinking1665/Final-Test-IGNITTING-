@@ -16,7 +16,7 @@
         }
 
         .container {
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.85);
             padding: 20px;
             border-radius: 15px;
             box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.3);
@@ -39,32 +39,9 @@
 
         .question img {
             width: 100%;
-            max-width: 400px;
+            max-width: 600px;
             border-radius: 10px;
             margin: 10px 0;
-        }
-
-        button {
-            padding: 12px 20px;
-            font-size: 18px;
-            border: none;
-            border-radius: 8px;
-            transition: 0.3s;
-            cursor: not-allowed;
-            background: gray;
-            color: white;
-            font-weight: bold;
-            width: 100%;
-        }
-
-        button.enabled {
-            background: #27ae60;
-            cursor: pointer;
-            box-shadow: 0px 4px 10px rgba(0, 255, 0, 0.5);
-        }
-
-        button.enabled:hover {
-            background: #2ecc71;
         }
     </style>
 </head>
@@ -74,7 +51,7 @@
         <h2> IGNITTE DESIGN TEST </h2>
         <p class="timer">Time left: <span id="time">1:00</span></p>
 
-        <!-- 7 MCQ Questions -->
+        <!-- 10 MCQ Questions -->
         <div class="question">
             <p><b>1️⃣ Question:</b></p>
             <img src="A1.png" alt="MCQ 1">
@@ -95,7 +72,6 @@
             <input type="radio" name="A2" value="D"> D
         </div>
 
-        <!-- Repeat for mc3 to mc7 -->
         <div class="question">
             <p><b>3️⃣ Question:</b></p>
             <img src="A3.png" alt="MCQ 3">
@@ -146,19 +122,19 @@
             <input type="radio" name="A7" value="D"> D
         </div>
 
-         <div class="question">
+        <div class="question">
             <p><b>8️⃣ Question:</b></p>
-            <img src="A8.png" alt="MCQ 5">
+            <img src="A8.png" alt="MCQ 8">
             <br>
             <input type="radio" name="A8" value="A"> A
             <input type="radio" name="A8" value="B"> B
             <input type="radio" name="A8" value="C"> C
             <input type="radio" name="A8" value="D"> D
-        </div
+        </div>
 
         <div class="question">
             <p><b>9️⃣ Question:</b></p>
-            <img src="A9.png" alt="MCQ 6">
+            <img src="A9.png" alt="MCQ 9">
             <br>
             <input type="radio" name="A9" value="A"> A
             <input type="radio" name="A9" value="B"> B
@@ -168,33 +144,31 @@
 
         <div class="question">
             <p><b>🔟 Question:</b></p>
-            <img src="A10.png" alt="MCQ 7">
+            <img src="A10.png" alt="MCQ 10">
             <br>
             <input type="radio" name="A10" value="A"> A
             <input type="radio" name="A10" value="B"> B
             <input type="radio" name="A10" value="C"> C
             <input type="radio" name="A10" value="D"> D
         </div>
+    </div>
 
     <script>
-        let timeLeft = 60; // 1 minute
+        let timeLeft = 60;
         let timerElement = document.getElementById("time");
 
         function updateTimer() {
-            let minutes = Math.floor(timeLeft / 60);
-            let seconds = timeLeft % 60;
-            timerElement.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-
             if (timeLeft === 0) {
                 clearInterval(timer);
                 autoSubmit();
             } else {
+                timerElement.textContent = `0:${timeLeft < 10 ? '0' : ''}${timeLeft}`;
                 timeLeft--;
             }
         }
 
         function autoSubmit() {
-            window.location.href = "resultloader.html"; // Redirect to prank page
+            window.location.href = "resultloader.html";
         }
 
         let timer = setInterval(updateTimer, 1000);
