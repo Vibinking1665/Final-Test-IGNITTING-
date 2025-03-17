@@ -29,8 +29,11 @@
         .message {
             font-size: 20px;
             font-weight: bold;
-            color: #ffdd57;
-            margin-top: 20px;
+            color: yellow;
+        }
+
+        .hidden {
+            display: none;
         }
 
         .question img {
@@ -45,96 +48,99 @@
 
     <div class="container">
         <h2> IGNITTE FINAL TEST </h2>
+        <p id="testMessage" class="message"></p>
 
-        <!-- Questions (MCQs & Integer Type) -->
-        <div class="question">
-            <p><b>1️⃣ Question 1:</b></p>
-            <img src="mcq1.png" alt="MCQ 1">
-            <br>
-            <input type="radio" name="q1" value="A"> A
-            <input type="radio" name="q1" value="B"> B
-            <input type="radio" name="q1" value="C"> C
-            <input type="radio" name="q1" value="D"> D
-        </div>
+        <div id="testContent" class="hidden">
+            <!-- Questions (MCQs & Integer Type) -->
+            <div class="question">
+                <p><b>1️⃣ Question 1:</b></p>
+                <img src="mcq1.png" alt="MCQ 1">
+                <br>
+                <input type="radio" name="q1" value="A"> A
+                <input type="radio" name="q1" value="B"> B
+                <input type="radio" name="q1" value="C"> C
+                <input type="radio" name="q1" value="D"> D
+            </div>
 
-        <div class="question">
-            <p><b>2️⃣ Question 2:</b></p>
-            <img src="mcq2.png" alt="MCQ 2">
-            <br>
-            <input type="radio" name="q2" value="A"> A
-            <input type="radio" name="q2" value="B"> B
-            <input type="radio" name="q2" value="C"> C
-            <input type="radio" name="q2" value="D"> D
-        </div>
+            <div class="question">
+                <p><b>2️⃣ Question 2:</b></p>
+                <img src="mcq2.png" alt="MCQ 2">
+                <br>
+                <input type="radio" name="q2" value="A"> A
+                <input type="radio" name="q2" value="B"> B
+                <input type="radio" name="q2" value="C"> C
+                <input type="radio" name="q2" value="D"> D
+            </div>
 
-        <div class="question">
-            <p><b>3️⃣ Question 3:</b></p>
-            <img src="mcq3.png" alt="MCQ 3">
-            <br>
-            <input type="radio" name="q3" value="A"> A
-            <input type="radio" name="q3" value="B"> B
-            <input type="radio" name="q3" value="C"> C
-            <input type="radio" name="q3" value="D"> D
-        </div>
+            <div class="question">
+                <p><b>3️⃣ Question 3:</b></p>
+                <img src="mcq3.png" alt="MCQ 3">
+                <br>
+                <input type="radio" name="q3" value="A"> A
+                <input type="radio" name="q3" value="B"> B
+                <input type="radio" name="q3" value="C"> C
+                <input type="radio" name="q3" value="D"> D
+            </div>
 
-        <div class="question">
-            <p><b>4️⃣ Question 4:</b></p>
-            <img src="mcq4.png" alt="MCQ 4">
-            <br>
-            <input type="radio" name="q4" value="A"> A
-            <input type="radio" name="q4" value="B"> B
-            <input type="radio" name="q4" value="C"> C
-            <input type="radio" name="q4" value="D"> D
-        </div>
+            <div class="question">
+                <p><b>4️⃣ Question 4:</b></p>
+                <img src="mcq4.png" alt="MCQ 4">
+                <br>
+                <input type="radio" name="q4" value="A"> A
+                <input type="radio" name="q4" value="B"> B
+                <input type="radio" name="q4" value="C"> C
+                <input type="radio" name="q4" value="D"> D
+            </div>
 
-        <div class="question">
-            <p><b>5️⃣ Question 5:</b></p>
-            <img src="mcq5.png" alt="MCQ 5">
-            <br>
-            <input type="radio" name="q5" value="A"> A
-            <input type="radio" name="q5" value="B"> B
-            <input type="radio" name="q5" value="C"> C
-            <input type="radio" name="q5" value="D"> D
-        </div>
+            <div class="question">
+                <p><b>5️⃣ Question 5:</b></p>
+                <img src="mcq5.png" alt="MCQ 5">
+                <br>
+                <input type="radio" name="q5" value="A"> A
+                <input type="radio" name="q5" value="B"> B
+                <input type="radio" name="q5" value="C"> C
+                <input type="radio" name="q5" value="D"> D
+            </div>
 
-        <!-- Integer Type Questions -->
-        <div class="question">
-            <p><b>6️⃣ Solve this:</b></p>
-            <img src="int1.png" alt="Integer Q1">
-            <br>
-            <input type="number" name="int1" placeholder="Enter answer">
-        </div>
+            <!-- Integer Type Questions -->
+            <div class="question">
+                <p><b>6️⃣ Solve this:</b></p>
+                <img src="int1.png" alt="Integer Q1">
+                <br>
+                <input type="number" name="int1">
+            </div>
 
-        <div class="question">
-            <p><b>7️⃣ Solve this:</b></p>
-            <img src="int2.png" alt="Integer Q2">
-            <br>
-            <input type="number" name="int2" placeholder="Enter answer">
-        </div>
+            <div class="question">
+                <p><b>7️⃣ Solve this:</b></p>
+                <img src="int2.png" alt="Integer Q2">
+                <br>
+                <input type="number" name="int2">
+            </div>
 
-        <div class="question">
-            <p><b>8️⃣ Solve this:</b></p>
-            <img src="int3.png" alt="Integer Q3">
-            <br>
-            <input type="number" name="int3" placeholder="Enter answer">
-        </div>
+            <div class="question">
+                <p><b>8️⃣ Solve this:</b></p>
+                <img src="int3.png" alt="Integer Q3">
+                <br>
+                <input type="number" name="int3">
+            </div>
 
-        <div class="question">
-            <p><b>9️⃣ Solve this:</b></p>
-            <img src="int4.png" alt="Integer Q4">
-            <br>
-            <input type="number" name="int4" placeholder="Enter answer">
-        </div>
+            <div class="question">
+                <p><b>9️⃣ Solve this:</b></p>
+                <img src="int4.png" alt="Integer Q4">
+                <br>
+                <input type="number" name="int4">
+            </div>
 
-        <div class="question">
-            <p><b>🔟 Solve this:</b></p>
-            <img src="int5.png" alt="Integer Q5">
-            <br>
-            <input type="number" name="int5" placeholder="Enter answer">
+            <div class="question">
+                <p><b>🔟 Solve this:</b></p>
+                <img src="int5.png" alt="Integer Q5">
+                <br>
+                <input type="number" name="int5">
+            </div>
         </div>
     </div>
 
-        <script>
+    <script>
         function checkTime() {
             let now = new Date();
             let hours = now.getHours();
@@ -153,11 +159,15 @@
             document.getElementById("testMessage").classList.add("hidden");
             document.getElementById("testContent").classList.remove("hidden");
 
-            let timeRemaining = (50 - minutes) * 60 * 1000;
+            let testEndTime = new Date();
+            testEndTime.setHours(17, 50, 0, 0); // 5:50 PM
+            let timeRemaining = testEndTime - now;
+
             setTimeout(() => window.location.href = "resultloader.html", timeRemaining);
         }
 
         checkTime();
     </script>
+
 </body>
 </html>
