@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics Test</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: url('background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .container {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.3);
+            width: 80%;
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .timer {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff4757;
+            animation: pulse 1s infinite alternate;
+        }
+
+        @keyframes pulse {
+            from { transform: scale(1); }
+            to { transform: scale(1.1); }
+        }
+
+        .question img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+            margin: 10px 0;
+        }
+
+        button {
+            padding: 12px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            transition: 0.3s;
+            cursor: not-allowed;
+            background: gray;
+            color: white;
+            font-weight: bold;
+            width: 100%;
+        }
+
+        button.enabled {
+            background: #27ae60;
+            cursor: pointer;
+            box-shadow: 0px 4px 10px rgba(0, 255, 0, 0.5);
+        }
+
+        button.enabled:hover {
+            background: #2ecc71;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2> IGNITTE PHYSICS TEST </h2>
+        <p class="timer">Time left: <span id="time">1:00</span></p>
+
+        <!-- 7 MCQ Questions -->
+        <div class="question">
+            <p><b>1️⃣ Question:</b></p>
+            <img src="A1.png" alt="MCQ 1">
+            <br>
+            <input type="radio" name="A1" value="A"> A
+            <input type="radio" name="A1" value="B"> B
+            <input type="radio" name="A1" value="C"> C
+            <input type="radio" name="A1" value="D"> D
+        </div>
+
+        <div class="question">
+            <p><b>2️⃣ Question:</b></p>
+            <img src="A2.png" alt="MCQ 2">
+            <br>
+            <input type="radio" name="A2" value="A"> A
+            <input type="radio" name="A2" value="B"> B
+            <input type="radio" name="A2" value="C"> C
+            <input type="radio" name="A2" value="D"> D
+        </div>
+
+        <!-- Repeat for mc3 to mc7 -->
+        <div class="question">
+            <p><b>3️⃣ Question:</b></p>
+            <img src="A3.png" alt="MCQ 3">
+            <br>
+            <input type="radio" name="A3" value="A"> A
+            <input type="radio" name="A3" value="B"> B
+            <input type="radio" name="A3" value="C"> C
+            <input type="radio" name="A3" value="D"> D
+        </div>
+
+        <div class="question">
+            <p><b>4️⃣ Question:</b></p>
+            <img src="A4.png" alt="MCQ 4">
+            <br>
+            <input type="radio" name="A4" value="A"> A
+            <input type="radio" name="A4" value="B"> B
+            <input type="radio" name="A4" value="C"> C
+            <input type="radio" name="A4" value="D"> D
+        </div>
+
+        <div class="question">
+            <p><b>5️⃣ Question:</b></p>
+            <img src="A5.png" alt="MCQ 5">
+            <br>
+            <input type="radio" name="A5" value="A"> A
+            <input type="radio" name="A5" value="B"> B
+            <input type="radio" name="A5" value="C"> C
+            <input type="radio" name="A5" value="D"> D
+        </div>
+
+        <div class="question">
+            <p><b>6️⃣ Question:</b></p>
+            <img src="A6.png" alt="MCQ 6">
+            <br>
+            <input type="radio" name="A6" value="A"> A
+            <input type="radio" name="A6" value="B"> B
+            <input type="radio" name="A6" value="C"> C
+            <input type="radio" name="A6" value="D"> D
+        </div>
+
+        <div class="question">
+            <p><b>7️⃣ Question:</b></p>
+            <img src="A7.png" alt="MCQ 7">
+            <br>
+            <input type="radio" name="A7" value="A"> A
+            <input type="radio" name="A7" value="B"> B
+            <input type="radio" name="A7" value="C"> C
+            <input type="radio" name="A7" value="D"> D
+        </div>
+
+         <div class="question">
+            <p><b>8️⃣ Question:</b></p>
+            <img src="A8.png" alt="MCQ 5">
+            <br>
+            <input type="radio" name="A8" value="A"> A
+            <input type="radio" name="A8" value="B"> B
+            <input type="radio" name="A8" value="C"> C
+            <input type="radio" name="A8" value="D"> D
+        </div
+
+        <div class="question">
+            <p><b>9️⃣ Question:</b></p>
+            <img src="A9.png" alt="MCQ 6">
+            <br>
+            <input type="radio" name="A9" value="A"> A
+            <input type="radio" name="A9" value="B"> B
+            <input type="radio" name="A9" value="C"> C
+            <input type="radio" name="A9" value="D"> D
+        </div>
+
+        <div class="question">
+            <p><b>🔟 Question:</b></p>
+            <img src="A10.png" alt="MCQ 7">
+            <br>
+            <input type="radio" name="A10" value="A"> A
+            <input type="radio" name="A10" value="B"> B
+            <input type="radio" name="A10" value="C"> C
+            <input type="radio" name="A10" value="D"> D
+        </div>
+
+    <script>
+        let timeLeft = 60; // 1 minute
+        let timerElement = document.getElementById("time");
+
+        function updateTimer() {
+            let minutes = Math.floor(timeLeft / 60);
+            let seconds = timeLeft % 60;
+            timerElement.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+
+            if (timeLeft === 0) {
+                clearInterval(timer);
+                autoSubmit();
+            } else {
+                timeLeft--;
+            }
+        }
+
+        function autoSubmit() {
+            window.location.href = "resultloader.html"; // Redirect to prank page
+        }
+
+        let timer = setInterval(updateTimer, 1000);
+    </script>
+
+</body>
+</html>
