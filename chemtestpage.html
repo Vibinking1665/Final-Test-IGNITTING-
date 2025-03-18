@@ -148,12 +148,12 @@
             let hours = now.getHours();
             let minutes = now.getMinutes();
 
-            if (hours < 17 || (hours === 17 && minutes < 35)) {
-                document.getElementById("testMessage").textContent = "Test will start at 5:35 PM.";
+            if (hours < 18 || (hours === 18 && minutes < 10)) {
+                document.getElementById("testMessage").textContent = "Test will start at 6:10 PM.";
                 return;
             } 
 
-            if (hours === 17 && minutes >= 50) {
+            if (hours === 18 && minutes >= 25) {
                 document.getElementById("testMessage").textContent = "Test has ended.";
                 return;
             }
@@ -162,7 +162,7 @@
             document.getElementById("testContent").classList.remove("hidden");
 
             let testEndTime = new Date();
-            testEndTime.setHours(17, 50, 0, 0); // 5:50 PM
+            testEndTime.setHours(18, 25, 0, 0); // 5:50 PM
             let timeRemaining = testEndTime - now;
 
             setTimeout(() => window.location.href = "resultloader.html", timeRemaining);
